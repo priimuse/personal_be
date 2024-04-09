@@ -3,6 +3,12 @@ const axios = require('axios');
 const app = express();
 const port = 5000;
 
+//heroku app at 
+//https://immense-sands-12203-f6a7846ce7c0.herokuapp.com/
+//$5/month :(
+//https://devcenter.heroku.com/articles/getting-started-with-nodejs?singlepage=true#set-up
+
+
 function keyValidator(testKeys, masterKeys){
 	let failing = false;
 	for (let i = 0; i < masterKeys.length; i++) {
@@ -12,6 +18,10 @@ function keyValidator(testKeys, masterKeys){
 		if (!masterKeys.includes(testKeys[i])) failing = true;
 	}
 	return failing;
+}
+
+function GetAuthToken(){
+	return process.env.OPENAI_AUTH_TOKEN.toString();
 }
 
 app.use(express.json());
@@ -44,7 +54,7 @@ app.post('/simplePrompt', (req, res) => {
 		},
 		headers: {
 			"Content-type": "application/json",
-			"Authorization": "Bearer "
+			"Authorization": "Bearer " + GetAuthToken();
 		}
 	})
 	.then((response) => {
@@ -82,7 +92,7 @@ app.post('/simpleImagePrompt', (req, res) => {
 		},
 		headers: {
 			"Content-Type": "application/json",
-			"Authorization": "Bearer "
+			"Authorization": "Bearer " + GetAuthToken();
 		}
 	})
 	.then((response) => {
