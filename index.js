@@ -1,5 +1,6 @@
 const express = require('express');
 const axios = require('axios');
+const cors = require('cors');
 const app = express();
 const port = process.env.PORT || 5000;
 
@@ -25,6 +26,7 @@ function GetAuthToken(){
 }
 
 app.use(express.json());
+app.use(cors());
 
 app.get('/', (req, res) => {
 	console.log("__dirname is:", __dirname);
