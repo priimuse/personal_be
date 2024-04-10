@@ -54,7 +54,7 @@ app.post('/simplePrompt', (req, res) => {
 		},
 		headers: {
 			"Content-type": "application/json",
-			"Authorization": "Bearer " + GetAuthToken();
+			"Authorization": "Bearer " + GetAuthToken()
 		}
 	})
 	.then((response) => {
@@ -92,7 +92,7 @@ app.post('/simpleImagePrompt', (req, res) => {
 		},
 		headers: {
 			"Content-Type": "application/json",
-			"Authorization": "Bearer " + GetAuthToken();
+			"Authorization": "Bearer " + GetAuthToken()
 		}
 	})
 	.then((response) => {
