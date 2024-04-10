@@ -1,7 +1,7 @@
 const express = require('express');
 const axios = require('axios');
 const app = express();
-const port = 5000;
+const port = process.env.PORT || 5000;
 
 //heroku app at 
 //https://immense-sands-12203-f6a7846ce7c0.herokuapp.com/
