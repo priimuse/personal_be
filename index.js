@@ -21,7 +21,7 @@ function keyValidator(testKeys, masterKeys){
 }
 
 function GetAuthToken(){
-	return process.env.OPENAI_AUTH_TOKEN.toString();
+	return process.env.OPENAI_AUTH_TOKEN;
 }
 
 app.use(express.json());
